@@ -46,7 +46,7 @@ public class MyFirstSwingApp {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//this is some dirty comment
+		
 		JToolBar toolBar = new JToolBar();
 		frame.getContentPane().add(toolBar, BorderLayout.WEST);
 		final JEditorPane editorPane = new JEditorPane();
