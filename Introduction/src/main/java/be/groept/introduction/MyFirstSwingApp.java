@@ -2,7 +2,15 @@ package be.groept.introduction;
 
 import java.awt.EventQueue;
 
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JToolBar;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class MyFirstSwingApp {
 
@@ -38,5 +46,25 @@ public class MyFirstSwingApp {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JToolBar toolBar = new JToolBar();
+		frame.getContentPane().add(toolBar, BorderLayout.WEST);
+		final JEditorPane editorPane = new JEditorPane();
+		frame.getContentPane().add(editorPane);
+		
+		JButton btnNewButton = new JButton("Open");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane joptionPane = new JOptionPane();
+				String url=joptionPane.showInputDialog("Enter URL");				
+				try {
+					editorPane.setPage(url);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		frame.getContentPane().add(btnNewButton, BorderLayout.CENTER);
 	}
 }
